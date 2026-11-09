@@ -1,0 +1,25 @@
+name: patch-check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify patch and fork sources
+        shell: pwsh
+        run: ./scripts/smoke-test.ps1
+
+      - name: Verify patch is a valid unified diff
+        run: |
+          set -e
+          test -s patches/forge-1.12.2-multithreaded.patch
+          grep -q '^diff --git ' patches/forge-1.12.2-multithreaded.patch
+          grep -q 'net/minecraftforge/common/threading/RegionManager.java' patches/forge-1.12.2-multithreaded.patch
+          grep -q 'net/minecraftforge/common/memory/MemoryLeakGuard.java' patches/forge-1.12.2-multithreaded.patch
+          echo "patch structure ok"

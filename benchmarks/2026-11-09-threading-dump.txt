@@ -1,0 +1,92 @@
+ForgeThreading: TPS=20.00 MSPT=22.07 max=91.50 FPS=113
+preset=auto singleThreaded=false dimensions=4 regions=4 regionSize=16 autopilot=true blockTicks=true scheduled=true lighting=true packetOut=true packetIn=true
+pools: world=3/0q0 region=4/0q0 path=8/0q0 chunkio=1/0q0 packetOut=0/0q0 packetIn=0/0q0
+net: out=0/s in=0/s fwd=1341/s main=0/s serFail=0 inFail=0
+main phases ms(l/p): world=16.00/19.49 net=0.14/0.15 players=0.00/0.00 cmd=0.00/0.01 tickables=0.00/0.00 pregen=0.00/0.00
+world(last tick): total=15.97 base=4.78 sched=0.02 random=2.13 chunk=0.07 chunkSrc=0.00 spawner=1.83 map=0.15 ms
+world(last tick): entities=9.77 te=0.89 track=0.47 path=0.02 light*=0.01 hooks=0.04 deferred=0.00 ms
+counters: dispatchFallback=0 dispatchQueue=0 eventInline=0 eventSkip=0 scheduledTasks=14 lightGlobal=3790 lightShard=1950 autopilotTrial=1 autopilotAccept=0 autopilotReject=0
+phases:
+  client.entities last=1.318ms avg=1.396ms max=49.690ms wmax=0.000ms count=1233
+  client.entities_translucent last=0.085ms avg=0.099ms max=7.790ms wmax=0.000ms count=1233
+  client.frame last=7.618ms avg=8.415ms max=588.971ms wmax=0.000ms count=1240
+  client.render last=7.349ms avg=7.528ms max=117.139ms wmax=0.000ms count=1240
+  client.scheduled last=0.004ms avg=0.159ms max=454.348ms wmax=0.000ms count=1241
+  client.scheduledTask last=0.000ms avg=0.001ms max=454.298ms wmax=0.000ms count=5100
+  client.terrain last=2.445ms avg=2.575ms max=9.092ms wmax=0.000ms count=1233
+  client.terrain_setup last=1.045ms avg=1.123ms max=48.175ms wmax=0.000ms count=1233
+  client.tick last=2.712ms avg=3.760ms max=59.384ms wmax=0.000ms count=228
+  client.updatechunks last=0.444ms avg=0.274ms max=6.034ms wmax=0.000ms count=1233
+  main.chunkio last=0.002ms avg=0.431ms max=190.157ms wmax=0.000ms count=273
+  main.commandFunctions last=0.004ms avg=0.005ms max=0.054ms wmax=0.000ms count=272
+  main.dimUnload last=0.003ms avg=0.006ms max=69.749ms wmax=0.000ms count=272
+  main.jobs last=0.001ms avg=0.103ms max=30.166ms wmax=0.000ms count=273
+  main.network last=0.136ms avg=0.153ms max=125.199ms wmax=0.000ms count=272
+  main.players last=0.001ms avg=0.001ms max=0.008ms wmax=0.000ms count=272
+  main.pregen last=0.001ms avg=0.002ms max=1.375ms wmax=0.000ms count=272
+  main.serverTick last=16.213ms avg=20.279ms max=274.500ms wmax=0.000ms count=272
+  main.tickables last=0.001ms avg=0.001ms max=0.006ms wmax=0.000ms count=272
+  main.world last=16.000ms avg=19.492ms max=201.772ms wmax=0.000ms count=272
+  net.chunk.invalidate last=0.000ms avg=0.000ms max=0.007ms wmax=0.000ms count=775
+  net.chunk.mark last=0.006ms avg=0.004ms max=0.098ms wmax=0.000ms count=775
+  net.chunk.pre last=0.027ms avg=0.017ms max=0.274ms wmax=0.000ms count=775
+  net.chunk.read last=0.140ms avg=0.156ms max=48.860ms wmax=0.000ms count=775
+  net.chunk.total last=0.176ms avg=0.179ms max=48.930ms wmax=0.000ms count=775
+  world.chunkMap last=0.000ms avg=0.000ms max=0.000ms wmax=0.153ms count=0
+  world.chunkSource last=0.000ms avg=0.000ms max=0.000ms wmax=0.004ms count=0
+  world.chunkTick last=0.000ms avg=0.000ms max=0.000ms wmax=0.001ms count=0
+  world.deferred last=0.000ms avg=0.000ms max=0.000ms wmax=0.001ms count=0
+  world.entities last=0.000ms avg=0.000ms max=0.000ms wmax=9.772ms count=0
+  world.hash last=0.000ms avg=0.000ms max=0.000ms wmax=0.001ms count=0
+  world.hooks last=0.000ms avg=0.000ms max=0.000ms wmax=0.027ms count=0
+  world.lighting last=0.000ms avg=0.000ms max=0.000ms wmax=0.003ms count=0
+  world.mobSpawner last=0.000ms avg=0.000ms max=0.000ms wmax=1.827ms count=0
+  world.pathfinding last=0.000ms avg=0.000ms max=0.000ms wmax=0.015ms count=0
+  world.portal last=0.000ms avg=0.000ms max=0.000ms wmax=0.001ms count=0
+  world.randomTicks last=0.000ms avg=0.000ms max=0.000ms wmax=2.132ms count=0
+  world.scheduledTicks last=0.000ms avg=0.000ms max=0.000ms wmax=0.022ms count=0
+  world.tick last=0.000ms avg=0.000ms max=0.000ms wmax=4.783ms count=0
+  world.tickBlocks last=0.000ms avg=0.000ms max=0.000ms wmax=2.506ms count=0
+  world.tileEntities last=0.000ms avg=0.000ms max=0.000ms wmax=0.886ms count=0
+  world.tracking last=0.000ms avg=0.000ms max=0.000ms wmax=0.468ms count=0
+  world.village last=0.000ms avg=0.000ms max=0.000ms wmax=0.252ms count=0
+  world.weather last=0.000ms avg=0.000ms max=0.000ms wmax=0.013ms count=0
+counters:
+  autopilot.trial=1
+  deferred.ordered.applied=10
+  deferred.ordered.enqueued=10
+  dispatch.forwarded=270
+  dispatch.tasks=270
+  inbound.forwarded=5264
+  inbound.main=5257
+  light.global=3790
+  light.shard=1950
+  net.slowPacket=2
+  path.completed=4966
+  path.submitted=4967
+  region.block.tasks=1614
+  region.block.units=44532
+  region.entity.tasks=3515
+  region.entity.units=172720
+  region.scheduled.entries=2
+  region.scheduled.regions=1
+  region.scheduled.tasks=14
+  region.scheduled.units=39
+  region.te.tasks=2252
+  region.te.units=103563
+  render.chunk.compiled=5403
+  render.chunk.deferred=4563
+  render.chunk.enqueued=4563
+  render.chunk.uploads=3393
+  render.fallback=1
+  render.fallback.null=1
+  render.prepared=2330
+  render.requests=2463
+  render.used=2462
+pools:
+  chunkio size=1 active=0 queue=0 completed=412 largest=1
+  packetIn size=0 active=0 queue=0 completed=0 largest=0
+  packetOut size=0 active=0 queue=0 completed=0 largest=0
+  path size=8 active=0 queue=0 completed=4967 largest=8
+  region size=4 active=1 queue=0 completed=7395 largest=4
+  world size=3 active=0 queue=0 completed=3 largest=3

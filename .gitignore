@@ -1,0 +1,40 @@
+# Build outputs
+/build/
+/out/
+/compile_out/
+/mapped_stage/
+*.jar
+*.class
+*.log
+*.log.gz
+
+# Local run directories
+/logs/
+/run/
+/run-forge/
+/run-server/
+/forge_1.12.2_full_src/
+/baseline/
+/baseline2/
+/verify/
+
+# IDE / editor
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+*.code-workspace
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Local caches / data
+*.zip
+*.lzma
+eula.txt
+options.txt
+usercache.json
+usernamecache.json
