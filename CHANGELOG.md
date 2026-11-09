@@ -5,6 +5,48 @@ All dates are from the original development and test environment
 
 ---
 
+## 2026-11-09 — v0.2: warm boot, adaptive governor, low-memory mode
+
+### Added
+
+- `net.minecraftforge.common.threading.WarmBoot` — opt-in
+  (`-Dforge.threading.warmBoot=true`) hides the fully initialized client instead
+  of destroying it; a local IPC endpoint (`SHOW`/`QUIT`, 127.0.0.1:25566) shows
+  or quits it, so later launches skip mod init and resource loading.
+- `PerformanceGovernor` — self-tuning MSPT governor. It shrinks AI-LOD radii and
+  simulation distance when the rolling MSPT window is over budget and expands
+  them back when comfortably under budget (2 bad / 10 good windows, 10-window
+  warm-up, hysteresis).
+- `MemoryTrim` — low-memory mode for heaps <= 1280 MB: drops
+  `LaunchClassLoader.resourceCache` bytecode after startup and caps simulation
+  distance.
+- `ClassCache` — persistent class-scan cache used by the load pool.
+- `StatsOverlay` — client performance overlay (FPS, frame time, TPS/MSPT, heap,
+  physical RAM, per-core CPU) on F8 / Options -> Stats Overlay.
+
+### Changed
+
+- `balanced`, `aggressive`, and `maximum` presets now leave the region worker
+  count on `auto` and use `regionSizeChunks=4`.
+- Low-memory systems disable dimension/region/model-baking parallelism and use a
+  reduced simulation distance.
+- `ThreadingMetrics`, `RegionManager`, `MainThreadDispatcher`, and
+  `LightingExecutor` updated for the governor, overlay, and metrics.
+- `FMLModContainer` and `FMLDeobfTweaker` now carry the fork hooks; these two
+  Forge classes are modified for the first time in this release.
+
+### Patch
+
+- Full patch: 114 paths (74 modified + 40 new).
+- `vanilla-only.patch` unchanged at 46 paths.
+
+### Verified
+
+- Client run: TPS 20.00, MSPT 11.11 ms (max 14.64), FPS 192, `dimensions=4`,
+  `regions=4`, 2390 path jobs, 119k region block units.
+
+---
+
 ## 2026-11-09 — Memory guard, parallel loading, final build
 
 ### Added

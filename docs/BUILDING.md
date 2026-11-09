@@ -18,13 +18,19 @@ The patch was generated against this baseline:
 
 The patch is a unified diff of:
 
-- **72 modified files**
-- **35 new files** (the `threading`, `memory`, `RenderPipeline`, and `LodRenderer`
-  classes)
+- **74 modified files**
+- **40 new files** (the `threading`, `memory`, `RenderPipeline`, and `LodRenderer`
+  classes, plus the v0.2 `ClassCache`, `WarmBoot`, `StatsOverlay`,
+  `PerformanceGovernor`, and `MemoryTrim` additions)
 
 If your source tree is assembled differently, the patch may not apply cleanly.
 In that case, use the fork-only classes from `src/main/java/` and port the
 modified hunks manually with `git apply --reject` or `patch -p1`.
+
+On Windows, a baseline assembled from `vanilla_2847` may contain CRLF line
+endings while the repository stores the patch with LF (see `.gitattributes`).
+`scripts/apply-patches.ps1` automatically retries with `--ignore-whitespace` for
+such trees; pass `-IgnoreWhitespace` to force it.
 
 ### Reproduce the baseline
 

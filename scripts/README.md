@@ -54,6 +54,8 @@ All scripts are PowerShell 5.1+ and assume Windows paths.
 - `run-client.ps1` and `run-server.ps1` are templates. Edit the default paths
   at the top of each file.
 - The patch is line-ending sensitive. Apply it with Git and keep
-  `core.autocrlf=false`.
+  `core.autocrlf=false`. If the baseline was assembled on Windows with CRLF
+  files, `apply-patches.ps1` automatically retries with `--ignore-whitespace`;
+  you can force the same with `-IgnoreWhitespace`.
 - `smoke-test.ps1` is used by CI to verify that the patch contains the expected
   fork classes.
