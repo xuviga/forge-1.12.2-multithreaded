@@ -12,7 +12,7 @@ $ErrorActionPreference = "Stop"
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 if (-not $Patch) {
-    $Patch = Join-Path $scriptDir "..\patches\forge-1.12.2-multithreaded.patch"
+    $Patch = [IO.Path]::Combine($scriptDir, "..", "patches", "forge-1.12.2-multithreaded.patch")
 }
 
 if (-not (Test-Path -LiteralPath $Target)) {

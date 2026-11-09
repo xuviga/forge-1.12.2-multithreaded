@@ -10,7 +10,7 @@ if (-not $RepoRoot) {
     $RepoRoot = Join-Path $scriptDir ".."
 }
 
-$patch = Join-Path $RepoRoot "patches\forge-1.12.2-multithreaded.patch"
+$patch = [IO.Path]::Combine($RepoRoot, "patches", "forge-1.12.2-multithreaded.patch")
 if (-not (Test-Path -LiteralPath $patch)) {
     throw "Patch missing: $patch"
 }
@@ -36,7 +36,8 @@ foreach ($needle in $required) {
     }
 }
 
-$javaCount = (Get-ChildItem -LiteralPath (Join-Path $RepoRoot "src\main\java") -Recurse -Filter "*.java" | Measure-Object).Count
+$javaDir = [IO.Path]::Combine($RepoRoot, "src", "main", "java")
+$javaCount = (Get-ChildItem -LiteralPath $javaDir -Recurse -Filter "*.java" | Measure-Object).Count
 if ($javaCount -lt 30) {
     throw "Expected at least 30 fork Java sources, found $javaCount"
 }

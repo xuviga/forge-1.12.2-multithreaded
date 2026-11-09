@@ -23,7 +23,7 @@ $ErrorActionPreference = "Stop"
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 if (-not $Out) {
-    $Out = Join-Path $scriptDir "..\compile_out"
+    $Out = [IO.Path]::Combine($scriptDir, "..", "compile_out")
 }
 
 if (-not (Test-Path -LiteralPath $SourceRoot)) {
