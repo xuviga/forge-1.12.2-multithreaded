@@ -400,6 +400,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 ## License and credits
 
 - Fork code: **LGPL-2.1** (see [LICENSE](LICENSE)), matching MinecraftForge.
+  The original Forge license notice and authorship notes are preserved in
+  [LICENSE-FORGE.txt](LICENSE-FORGE.txt).
 - Minecraft/Forge/Mojang/Microsoft trademarks and copyrights belong to their
   respective owners.
 - This repository does not distribute Minecraft source code, assets, or binaries.

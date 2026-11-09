@@ -30,6 +30,8 @@ MinecraftForge license.
 - The fork code in this repository is released under the **GNU Lesser General
   Public License 2.1** (see `LICENSE`), matching the license used by Minecraft
   Forge.
+- The original Forge license notice, authorship notes, and additional terms are
+  preserved verbatim in `LICENSE-FORGE.txt`.
 - MinecraftForge is licensed under LGPL 2.1. See the upstream project:
   <https://github.com/MinecraftForge/MinecraftForge>.
 - IndustrialCraft 2 and Just Enough Items are referenced only as compatibility
