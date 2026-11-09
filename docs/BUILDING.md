@@ -19,9 +19,9 @@ The patch was generated against this baseline:
 The patch is a unified diff of:
 
 - **74 modified files**
-- **40 new files** (the `threading`, `memory`, `RenderPipeline`, and `LodRenderer`
-  classes, plus the v0.2 `ClassCache`, `WarmBoot`, `StatsOverlay`,
-  `PerformanceGovernor`, and `MemoryTrim` additions)
+- **39 new files** (the `threading`, `memory`, `RenderPipeline`, and `LodRenderer`
+  classes, plus the v0.2 `ClassCache`, `StatsOverlay`, `PerformanceGovernor`,
+  and `MemoryTrim` additions)
 
 If your source tree is assembled differently, the patch may not apply cleanly.
 In that case, use the fork-only classes from `src/main/java/` and port the

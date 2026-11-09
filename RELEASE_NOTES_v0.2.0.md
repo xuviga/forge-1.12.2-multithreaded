@@ -1,16 +1,15 @@
-# v0.2.0 — warm boot, adaptive governor, low-memory mode
+# v0.2.0 — adaptive governor, low-memory mode
 
 **Second snapshot of the deterministic regionized multithreading fork of Minecraft Forge 1.12.2 (14.23.5.2860).**
 
 This release folds the post-v0.1.0 development tree into the public patch set.
 It is still experimental; test on a staging server and back up worlds.
 
+Warm boot is not part of this release. Closing the window shuts the client down
+normally; the previous hide/SHOW client behaviour was removed.
+
 ## Highlights
 
-- **Warm boot** (`WarmBoot`): after the player closes the window, the fully
-  initialized client is hidden instead of destroyed. A local IPC endpoint
-  (`SHOW`/`QUIT`, `127.0.0.1:25566`) shows or quits it, so the next launch skips
-  mod `preInit`/`init` and resource loading.
 - **Adaptive governor** (`PerformanceGovernor`): self-tuning MSPT governor that
   shrinks AI-LOD radii and simulation distance when the rolling MSPT window is
   over budget and expands them back when comfortably under budget, with
@@ -29,23 +28,23 @@ It is still experimental; test on a staging server and back up worlds.
 
 | Metric | v0.1.0 | v0.2.0 |
 |---|---:|---:|
-| Full patch paths | 107 | 114 |
+| Full patch paths | 107 | 113 |
 | Modified files | 72 | 74 |
-| New files | 35 | 40 |
-| Forge-layer Java files | 728 | 733 |
-| `common.threading` classes | 29 | 34 |
+| New files | 35 | 39 |
+| Forge-layer Java files | 728 | 732 |
+| `common.threading` classes | 29 | 33 |
 | `vanilla-only.patch` paths | 46 | 46 |
 
-The 7 additional patch paths are the five new classes (`ClassCache`,
-`WarmBoot`, `StatsOverlay`, `PerformanceGovernor`, `MemoryTrim`) plus
-`FMLModContainer` and `FMLDeobfTweaker`, which are modified for the first time.
+The 6 additional patch paths are the four new classes (`ClassCache`,
+`StatsOverlay`, `PerformanceGovernor`, `MemoryTrim`) plus `FMLModContainer` and
+`FMLDeobfTweaker`, which are modified for the first time.
 
 ## Verification
 
 - New full patch applies cleanly to a clean Forge 14.23.5.2860 MCP `stable_39`
   baseline (`git apply --check` exit code 0).
-- `vanilla-only.patch` is byte-identical to v0.1.0; all changes are in
-  `net/minecraftforge/**`.
+- `vanilla-only.patch` contains the updated `Minecraft.java` close handling
+  (46 paths).
 - Client run: TPS 20.00, MSPT 11.11 ms (max 14.64), FPS 192, `dimensions=4`,
   `regions=4`, 2390 path jobs, 119k region block units.
 

@@ -5,14 +5,10 @@ All dates are from the original development and test environment
 
 ---
 
-## 2026-11-09 — v0.2: warm boot, adaptive governor, low-memory mode
+## 2026-11-09 — v0.2: adaptive governor, low-memory mode
 
 ### Added
 
-- `net.minecraftforge.common.threading.WarmBoot` — opt-in
-  (`-Dforge.threading.warmBoot=true`) hides the fully initialized client instead
-  of destroying it; a local IPC endpoint (`SHOW`/`QUIT`, 127.0.0.1:25566) shows
-  or quits it, so later launches skip mod init and resource loading.
 - `PerformanceGovernor` — self-tuning MSPT governor. It shrinks AI-LOD radii and
   simulation distance when the rolling MSPT window is over budget and expands
   them back when comfortably under budget (2 bad / 10 good windows, 10-window
@@ -37,8 +33,8 @@ All dates are from the original development and test environment
 
 ### Patch
 
-- Full patch: 114 paths (74 modified + 40 new).
-- `vanilla-only.patch` unchanged at 46 paths.
+- Full patch: 113 paths (74 modified + 39 new).
+- `vanilla-only.patch`: 46 paths (Minecraft.java close handling updated).
 
 ### Verified
 

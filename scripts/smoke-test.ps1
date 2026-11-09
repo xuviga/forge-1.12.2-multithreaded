@@ -24,7 +24,6 @@ $required = @(
     "net/minecraftforge/common/threading/DeferredMutationQueue.java",
     "net/minecraftforge/common/threading/WorldStateHasher.java",
     "net/minecraftforge/common/threading/ClassCache.java",
-    "net/minecraftforge/common/threading/WarmBoot.java",
     "net/minecraftforge/common/threading/StatsOverlay.java",
     "net/minecraftforge/common/threading/PerformanceGovernor.java",
     "net/minecraftforge/common/threading/MemoryTrim.java",
