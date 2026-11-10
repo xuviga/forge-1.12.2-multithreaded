@@ -1,7 +1,56 @@
 # Changelog
 
 All dates are from the original development and test environment
-(2026-11-08 / 2026-11-09).
+(2026-11-08 / 2026-11-09 / 2026-11-10).
+
+---
+
+## 2026-11-10 – v0.3: client render governor, dedicated chunk-gen pool
+
+### Added
+
+- `ClientRenderGovernor` – adaptive client frame pacing. It trims render
+  distance and GUI/world work when frame time exceeds budget and restores it
+  when frames recover (8 ms / 0.75 s low watermark, 5 ms / 15 s recovery,
+  30 s penalty window, minimum render distance 6).
+- `ChunkGenExecutor` – dedicated chunk-generation worker pool with tuned queue
+  caps (1024 scheduled / 512 pending) so terrain generation no longer competes
+  with region ticking.
+- Rebuilt runtime jar (`v18`): 13,013,234 bytes,
+  SHA-256 `B79676152F06E88368BA505D655D546AD6262A091A76BD011F512C675C9D22BB`.
+
+### Changed
+
+- `BackgroundPacer`, `PregenManager`, `RegionManager`, `MemoryLeakGuard`
+  reworked for the v0.3 governor/executor split.
+- `guiWorldRenderInterval=1`: the world renders every frame behind the GUI.
+  The previous `-1` value caused a black background and visible flicker.
+- Client defaults tuned for integrated GPUs: `fancyGraphics=false`, render
+  distance 32 with LOD off, flight pre-generation on, chunk I/O threads 4.
+- JEI `maxColumns=20` to keep the recipe panel inside the viewport.
+- Removed the startup scheduled-tick warm-up; it did not pay for itself and
+  delayed first join.
+
+### Fixed
+
+- `Timed out waiting for region scheduled block tick` server crash
+  (`crash-2026-11-10_01.27.08-server.txt`): modded scheduled block ticks now
+  fall back to the owning region queue instead of aborting the server.
+
+### Patch
+
+- Full patch: 125 paths (83 modified + 42 new).
+- `vanilla-only.patch`: 56 paths (53 modified + 3 new: `RenderPipeline`,
+  `LodRenderer`, `block/model/ModelCache`).
+
+### Verified
+
+- Regenerated full patch applies to a clean Forge 14.23.5.2860 MCP `stable_39`
+  baseline with `git apply --check` (strict and `--ignore-whitespace`), and
+  reproduces the patched tree with 0/2922 normalized file mismatches.
+- `scripts/smoke-test.ps1`: OK, 41 fork Java sources.
+- Layer repository: 734 Forge Java files, 525 Forge patches,
+  `verify-layer.ps1` OK.
 
 ---
 
